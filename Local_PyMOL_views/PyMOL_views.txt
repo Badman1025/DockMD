@@ -1,0 +1,103 @@
+print cmd.get_names("objects")
+#['estradiol_docked', 'FLNA_receptor']
+#################################################view style1
+hide everything, FLNA_receptor
+show cartoon, FLNA_receptor
+color grey80, FLNA_receptor
+bg_color white
+
+# 小分子换成黄色碳骨架，氧红色，氮蓝色
+show sticks, estradiol_docked
+color yellow, estradiol_docked and elem C
+color red, estradiol_docked and elem O
+color blue, estradiol_docked and elem N
+
+#显示氢键（相互作用力）
+distance hbonds, estradiol_docked, FLNA_receptor, 3.5, mode=2
+
+#把“抓”住小分子的氨基酸显示出来
+# 选择口袋残基（距离小分子 4 埃以内）
+select pocket, FLNA_receptor within 4 of estradiol_docked
+
+# 将选中的口袋残基显示为棍状，并按原子上色
+show sticks, pocket
+color cyan, pocket and elem C
+
+zoom estradiol_docked, 5
+#给口袋氨基酸打上名字标签
+label pocket and name CA, resn + resi
+
+hide sticks, elem H
+show sticks, (pocket or estradiol_docked) and elem H
+set cartoon_transparency, 0.3, FLNA_receptor
+
+############################### 显示范德华球（vdW spheres）---view style2
+show spheres, estradiol_docked
+set sphere_scale, 0.5, estradiol_docked
+
+# 或显示范德华表面
+show surface, FLNA_receptor
+set transparency, 0.5
+
+# 小分子范德华表面
+show surface, estradiol_docked
+
+##########pymol动态保存
+cd C:/Users/Desktop/靶点药物预测/最新对接
+mset 1 x120
+frame 1
+mview store
+frame 120
+turn y, 360
+mview store
+mview reinterpolate
+mplay
+
+mset 1 x360
+movie.roll 1, 360, 360
+frame 1
+mplay
+
+mpng dock_, 1, 360, mode=2
+ffmpeg -framerate 30 -start_number 1 -i dock_%04d.png -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:v libx264 -crf 18 -pix_fmt yuv420p docking_rotation.mp4
+
+###########
+save C:/Users/Desktop/ampyrone_docking_result.pse
+save C:/Users/Desktop/FLNA_with_ampyrone.pdb
+ray 2400, 1800
+png C:/Users/Desktop/ampyrone_docking_result.png, dpi=300
+
+#################################################view style3
+# 1. 清理当前杂乱显示
+hide everything
+show cartoon, all
+
+# 2. 精确选中配体和口袋
+select ligand, estradiol_docked
+select pocket, byres (FLNA_receptor within 4.0 of ligand)
+
+# 3. 生成灰色实心表面
+show surface, FLNA_receptor
+color grey80, FLNA_receptor
+set surface_color, grey80, FLNA_receptor
+set transparency, 0, FLNA_receptor
+
+# 4. 设置配体为品红色棍状模型
+show sticks, ligand
+color magenta, ligand
+color magenta, name c and ligand
+set stick_radius, 0.15, ligand
+
+# 5. 设置口袋残基（只显示侧链棍状，深灰色）
+show sticks, pocket
+hide sticks, name c+n+o+ca, pocket
+color grey70, pocket
+
+# 6. 计算并显示氢键
+distance hbonds, ligand, pocket, 3.2, mode=2
+color salmon, hbonds
+hide labels, hbonds
+
+# 7. 隐藏卡通模型，镜头聚焦
+hide cartoon, all
+zoom ligand, 8

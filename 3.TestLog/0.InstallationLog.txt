@@ -1,0 +1,671 @@
+conda env create -f environment.yml
+
+Channels:
+ - conda-forge
+ - bioconda
+ - schrodinger
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /data/User/miniconda3/envs/DockMD
+
+  added / updated specs:
+    - _openmp_mutex=4.5
+    - _python_abi3_support=1.0
+    - acpype=2026.10.15
+    - alsa-lib=1.2.16.1
+    - ambertools=24.8
+    - annotated-doc=0.0.5
+    - apbs=1.5
+    - arpack=3.9.1
+    - attr=2.5.2
+    - autodock-vina=1.1.2
+    - backports.zstd=1.8.0
+    - biopython=1.88
+    - blosc=1.21.7
+    - brotli-bin=1.2.1
+    - brotli-python=1.2.1
+    - brotli=1.2.1
+    - bzip2=1.0.8
+    - c-ares=1.34.9
+    - ca-certificates=2026.10.23
+    - cached-property=2.0.1
+    - cached_property=2.0.1
+    - cairo=1.18.4
+    - catch2=3.13.0
+    - certifi=2026.10.23
+    - cffi=2.1.1
+    - charset-normalizer=3.5.2
+    - cloudpickle=3.1.2
+    - collada2gltf=2.1.4
+    - colorama=0.4.6
+    - contourpy=1.3.3
+    - cpython=3.12.16
+    - cycler=0.12.1
+    - cyrus-sasl=2.1.28
+    - dbus=1.16.2
+    - fftw=3.3.11
+    - font-ttf-dejavu-sans-mono=2.37
+    - font-ttf-inconsolata=3.000
+    - font-ttf-source-code-pro=2.038
+    - font-ttf-ubuntu=0.83
+    - fontconfig=2.18.3
+    - fonts-conda-ecosystem=1
+    - fonts-conda-forge=1
+    - fonttools=4.68.0
+    - freetype-py=2.3.0
+    - freetype=2.14.3
+    - glew=2.3.0
+    - glib-tools=2.90.0
+    - glib=2.90.0
+    - graphite2=1.3.15
+    - gromacs=2025.4
+    - gst-plugins-base=1.24.11
+    - gstreamer=1.24.11
+    - h2=4.4.1
+    - h5py=3.16.0
+    - harfbuzz=12.2.0
+    - hdf4=4.2.15
+    - hdf5=1.14.6
+    - hpack=4.2.0
+    - hyperframe=6.1.0
+    - icu=75.1
+    - idna=3.20
+    - intel-openmp=2025.0.0
+    - joblib=1.6.0
+    - keyutils=1.6.3
+    - kiwisolver=1.5.1
+    - krb5=1.21.3
+    - lame=4.0
+    - lcms2=2.19.1
+    - ld_impl_linux-64=2.46.1
+    - lerc=4.3.0
+    - libaec=1.1.7
+    - libattr=2.5.2
+    - libblas=3.11.0
+    - libboost-python=1.86.0
+    - libboost=1.86.0
+    - libbrotlicommon=1.2.1
+    - libbrotlidec=1.2.1
+    - libbrotlienc=1.2.1
+    - libcap=2.78
+    - libcblas=3.11.0
+    - libclang-cpp20.1=20.1.8
+    - libclang13=22.1.0
+    - libcups=2.3.3
+    - libcurl=8.19.0
+    - libdeflate=1.25
+    - libdrm=2.4.129
+    - libedit=3.1.20260512
+    - libegl=1.7.0
+    - libev=4.33
+    - libevent=2.1.12
+    - libexpat=2.9.0
+    - libffi=3.7.0
+    - libflac=1.5.0
+    - libfreetype6=2.14.3
+    - libfreetype=2.14.3
+    - libgcc-ng=16.2.0
+    - libgcc=16.2.0
+    - libgfortran-ng=16.2.0
+    - libgfortran5=16.2.0
+    - libgfortran=16.2.0
+    - libgl=1.7.0
+    - libglib=2.90.0
+    - libglu=9.0.3
+    - libglvnd=1.7.0
+    - libglx=1.7.0
+    - libgomp=16.2.0
+    - libholoplaycore=0.1.0_rc4
+    - libhwloc=2.12.1
+    - libiconv=1.18
+    - libidn2=2.3.8
+    - libjpeg-turbo=3.2.1
+    - libkrb5=1.22.1
+    - liblapack=3.11.0
+    - libllvm20=20.1.8
+    - libllvm22=22.1.2
+    - liblzma=5.8.3
+    - libnetcdf=4.9.3
+    - libnghttp2=1.67.1
+    - libnsl=2.0.1
+    - libntlm=1.8
+    - libogg=1.3.5
+    - libopenblas=0.3.34
+    - libopengl=1.7.0
+    - libopus=1.6.1
+    - libpciaccess=0.19
+    - libpng=1.6.59
+    - libpq=17.7
+    - libpython=3.12.15
+    - librdkit=2025.03.6
+    - libsndfile=1.2.2
+    - libsqlite=3.53.4
+    - libssh2=1.11.1
+    - libstdcxx-ng=16.2.0
+    - libstdcxx=16.2.0
+    - libsystemd0=262.1
+    - libtiff=4.7.2
+    - libunistring=0.9.10
+    - libuuid=2.42.4
+    - libvorbis=1.3.7
+    - libwebp-base=1.6.0
+    - libxcb=1.17.0
+    - libxcrypt=4.4.38
+    - libxkbcommon=1.11.0
+    - libxml2=2.13.9
+    - libzip=1.12.1
+    - libzlib=1.3.2
+    - lmdb=0.9.35
+    - lz4-c=1.10.0
+    - markdown-it-py=4.2.0
+    - matplotlib-base=3.10.9
+    - mdurl=0.1.2
+    - mengine=1
+    - mkl=2025.0.0
+    - mmcif_pdbx=2.0.1
+    - mpeg_encode=1
+    - mpg123=1.33.7
+    - mtz2ccp4_px=1.1
+    - munkres=1.1.4
+    - ncurses=6.6
+    - netcdf-fortran=4.6.2
+    - nlohmann_json=3.12.0
+    - nspr=4.40
+    - nss=3.118
+    - numpy=1.26.4
+    - ocl-icd=2.3.4
+    - openbabel=3.1.1
+    - opencl-headers=2025.06.13
+    - openjpeg=2.5.4
+    - openldap=2.6.10
+    - openssl=3.6.5
+    - packaging=26.3
+    - pandas=3.0.6
+    - parmed=4.3.1
+    - pcre2=10.47
+    - pdb-tools=2.7.0
+    - pdb2pqr=3.8.0
+    - perl=5.44.0
+    - pillow=13.0.0
+    - pip=26.2.2
+    - pixman=0.46.4
+    - ply=3.11
+    - pmw=2.1.1
+    - propka=3.5.1
+    - pthread-stubs=0.4
+    - pulseaudio-client=17.0
+    - pycairo=1.29.1
+    - pycollada=0.9.3
+    - pycparser=3.12
+    - pygments=2.21.0
+    - pykerberos=1.2.4
+    - pymol-bundle=3.1.6.1
+    - pymol-web-examples=2.4
+    - pymol=3.1.7.2
+    - pyparsing=3.3.3
+    - pyqt5-sip=12.17.0
+    - pyqt=5.15.11
+    - pysocks=1.7.1
+    - python-dateutil=4.0.0
+    - python-gil=3.12.16
+    - python-tzdata=2026.6
+    - python=3.12.15
+    - python_abi=3.12
+    - qhull=2020.2
+    - qt-main=5.15.15
+    - rdkit=2025.03.6
+    - readline=8.3
+    - reportlab=5.1.0
+    - requests=2.34.2
+    - rich=15.0.0
+    - rigimol=1.5.1
+    - rlpycairo=0.4.0
+    - scipy=1.17.1
+    - setuptools=84.2.1
+    - shellingham=1.5.4
+    - sip=6.10.0
+    - slm_x509=2024.3
+    - snappy=1.2.2
+    - sqlalchemy=2.1.8
+    - tbb-devel=2022.3.0
+    - tbb=2022.3.0
+    - tk=8.6.13
+    - toml=0.10.2
+    - tomli=2.5.0
+    - typer=0.27.3
+    - typing_extensions=4.16.0
+    - tzdata=2026e
+    - unicodedata2=18.0.0
+    - urllib3=2.8.0
+    - vtk-m=1.8.0
+    - wheel=0.48.0
+    - xcb-util-image=0.4.0
+    - xcb-util-keysyms=0.4.1
+    - xcb-util-renderutil=0.3.10
+    - xcb-util-wm=0.4.2
+    - xcb-util=0.4.1
+    - xkeyboard-config=2.48
+    - xorg-libice=1.1.2
+    - xorg-libsm=1.2.6
+    - xorg-libx11=1.8.14
+    - xorg-libxau=1.0.12
+    - xorg-libxcomposite=0.4.7
+    - xorg-libxdamage=1.1.6
+    - xorg-libxdmcp=1.1.5
+    - xorg-libxext=1.3.7
+    - xorg-libxfixes=6.0.2
+    - xorg-libxrender=0.9.13
+    - xorg-libxshmfence=1.3.3
+    - xorg-libxt=1.3.1
+    - xorg-libxxf86vm=1.1.7
+    - zlib-ng=2.3.3
+    - zlib=1.3.2
+    - zstandard=0.25.0
+    - zstd=1.5.7
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    backports.zstd-1.8.0       |  py312hf114f2f_2         236 KB  conda-forge
+    biopython-1.88             |  py312h5cc1888_2         3.1 MB  conda-forge
+    brotli-python-1.2.1        |  py312he9c40d5_1         359 KB  conda-forge
+    cffi-2.1.1                 |  py312h703531f_4         296 KB  conda-forge
+    kiwisolver-1.5.1           |  py312h9be0db6_4          73 KB  conda-forge
+    libclang-cpp20.1-20.1.8    |default_hc302687_18        20.7 MB  conda-forge
+    libidn2-2.3.8              |       h9866765_3         137 KB  conda-forge
+    pdb-tools-2.7.0            |     pyhcf101f3_0          56 KB  conda-forge
+    pip-26.2.2                 |     pyh8b19718_2         1.0 MB  conda-forge
+    pycollada-0.9.3            |     pyhd8ed1ab_1          92 KB  conda-forge
+    sqlalchemy-2.1.8           |  py312h1b36aeb_1         4.0 MB  conda-forge
+    unicodedata2-18.0.0        |  py312h5cc1888_1         412 KB  conda-forge
+    urllib3-2.8.0              |     pyh5ded981_1         111 KB  conda-forge
+    xcb-util-image-0.4.0       |       hb83e432_3          25 KB  conda-forge
+    zstandard-0.25.0           |  py312h1b36aeb_5         456 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        31.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_3 
+  acpype             conda-forge/noarch::acpype-2026.10.15-pyhd8ed1ab_0 
+  alsa-lib           conda-forge/linux-64::alsa-lib-1.2.16.1-h7cc23a3_1 
+  ambertools         conda-forge/linux-64::ambertools-24.8-cuda_None_nompi_py312h3d27ab6_102 
+  annotated-doc      conda-forge/noarch::annotated-doc-0.0.5-pyhcf101f3_0 
+  apbs               conda-forge/linux-64::apbs-1.5-hd8ae8d1_0 
+  arpack             conda-forge/linux-64::arpack-3.9.1-nompi_hf03ea27_102 
+  attr               conda-forge/linux-64::attr-2.5.2-hb03c661_1 
+  autodock-vina      bioconda/linux-64::autodock-vina-1.1.2-h9ee0642_3 
+  backports.zstd     conda-forge/linux-64::backports.zstd-1.8.0-py312hf114f2f_2 
+  biopython          conda-forge/linux-64::biopython-1.88-py312h5cc1888_2 
+  blosc              conda-forge/linux-64::blosc-1.21.7-h3f4a69f_0 
+  brotli             conda-forge/linux-64::brotli-1.2.1-h505cf86_1 
+  brotli-bin         conda-forge/linux-64::brotli-bin-1.2.1-h9908984_1 
+  brotli-python      conda-forge/linux-64::brotli-python-1.2.1-py312he9c40d5_1 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_10 
+  c-ares             conda-forge/linux-64::c-ares-1.34.9-hebe6cf0_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.10.23-hbd8a1cb_0 
+  cached-property    conda-forge/noarch::cached-property-2.0.1-pyhcf101f3_0 
+  cached_property    conda-forge/noarch::cached_property-2.0.1-pyhcf101f3_0 
+  cairo              conda-forge/linux-64::cairo-1.18.4-h3394656_0 
+  catch2             conda-forge/linux-64::catch2-3.13.0-h171cf75_0 
+  certifi            conda-forge/noarch::certifi-2026.10.23-pyhd8ed1ab_3 
+  cffi               conda-forge/linux-64::cffi-2.1.1-py312h703531f_4 
+  charset-normalizer conda-forge/linux-64::charset-normalizer-3.5.2-h1114479_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.2-pyhcf101f3_1 
+  collada2gltf       schrodinger/linux-64::collada2gltf-2.1.4-h6bb024c_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  contourpy          conda-forge/linux-64::contourpy-1.3.3-py312h0a2e395_4 
+  cpython            conda-forge/noarch::cpython-3.12.16-py312hd8ed1ab_0 
+  cycler             conda-forge/noarch::cycler-0.12.1-pyhcf101f3_2 
+  cyrus-sasl         conda-forge/linux-64::cyrus-sasl-2.1.28-hd9c7081_0 
+  dbus               conda-forge/linux-64::dbus-1.16.2-he8c428d_2 
+  fftw               conda-forge/linux-64::fftw-3.3.11-nompi_h3b011a4_100 
+  font-ttf-dejavu-s~ conda-forge/noarch::font-ttf-dejavu-sans-mono-2.37-hab24e00_0 
+  font-ttf-inconsol~ conda-forge/noarch::font-ttf-inconsolata-3.000-h77eed37_0 
+  font-ttf-source-c~ conda-forge/noarch::font-ttf-source-code-pro-2.038-h77eed37_0 
+  font-ttf-ubuntu    conda-forge/noarch::font-ttf-ubuntu-0.83-h77eed37_4 
+  fontconfig         conda-forge/linux-64::fontconfig-2.18.3-h4db4eae_3 
+  fonts-conda-ecosy~ conda-forge/noarch::fonts-conda-ecosystem-1-0 
+  fonts-conda-forge  conda-forge/noarch::fonts-conda-forge-1-hc364b38_1 
+  fonttools          conda-forge/linux-64::fonttools-4.68.0-py312hfd18d64_0 
+  freetype           conda-forge/linux-64::freetype-2.14.3-ha770c72_2 
+  freetype-py        conda-forge/noarch::freetype-py-2.3.0-pyhd8ed1ab_0 
+  glew               conda-forge/linux-64::glew-2.3.0-h71661d4_0 
+  glib               conda-forge/linux-64::glib-2.90.0-h5e3c387_0 
+  glib-tools         conda-forge/linux-64::glib-tools-2.90.0-h3d503d9_0 
+  graphite2          conda-forge/linux-64::graphite2-1.3.15-h54a6638_1 
+  gromacs            conda-forge/linux-64::gromacs-2025.4-nompi_h26635d9_100 
+  gst-plugins-base   conda-forge/linux-64::gst-plugins-base-1.24.11-h651a532_0 
+  gstreamer          conda-forge/linux-64::gstreamer-1.24.11-hc37bda9_0 
+  h2                 conda-forge/noarch::h2-4.4.1-pyhcf101f3_0 
+  h5py               conda-forge/linux-64::h5py-3.16.0-nompi_py312hfaa9938_105 
+  harfbuzz           conda-forge/linux-64::harfbuzz-12.2.0-h15599e2_0 
+  hdf4               conda-forge/linux-64::hdf4-4.2.15-h2a13503_7 
+  hdf5               conda-forge/linux-64::hdf5-1.14.6-nompi_h19486de_108 
+  hpack              conda-forge/noarch::hpack-4.2.0-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.20-pyh5ded981_0 
+  intel-openmp       anaconda/pkgs/main/linux-64::intel-openmp-2025.0.0-h06a4308_1172 
+  joblib             conda-forge/noarch::joblib-1.6.0-pyhcf101f3_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.3-h7cc23a3_1 
+  kiwisolver         conda-forge/linux-64::kiwisolver-1.5.1-py312h9be0db6_4 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  lame               conda-forge/linux-64::lame-4.0-h770b6ad_1 
+  lcms2              conda-forge/linux-64::lcms2-2.19.1-h9073bf1_3 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.46.1-default_hbd61a6d_103 
+  lerc               conda-forge/linux-64::lerc-4.3.0-he78707d_0 
+  libaec             conda-forge/linux-64::libaec-1.1.7-h659bb9a_0 
+  libattr            conda-forge/linux-64::libattr-2.5.2-hb03c661_1 
+  libblas            conda-forge/linux-64::libblas-3.11.0-12_h4a7cf45_openblas 
+  libboost           conda-forge/linux-64::libboost-1.86.0-hed09d94_4 
+  libboost-python    conda-forge/linux-64::libboost-python-1.86.0-py312hf890105_5 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.2.1-h39a168f_1 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.2.1-ha411449_1 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.2.1-h018ffa1_1 
+  libcap             conda-forge/linux-64::libcap-2.78-h084b8d7_1 
+  libcblas           conda-forge/linux-64::libcblas-3.11.0-12_h0358290_openblas 
+  libclang-cpp20.1   conda-forge/linux-64::libclang-cpp20.1-20.1.8-default_hc302687_18 
+  libclang13         conda-forge/linux-64::libclang13-22.1.0-default_h746c552_0 
+  libcups            conda-forge/linux-64::libcups-2.3.3-hb8b1518_5 
+  libcurl            anaconda/pkgs/main/linux-64::libcurl-8.19.0-ha05a353_0 
+  libdeflate         conda-forge/linux-64::libdeflate-1.25-hd45a770_1 
+  libdrm             conda-forge/linux-64::libdrm-2.4.129-h7cc23a3_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20260512-pl5321h373387f_0 
+  libegl             conda-forge/linux-64::libegl-1.7.0-ha4b6fd6_5 
+  libev              conda-forge/linux-64::libev-4.33-h280c20c_3 
+  libevent           conda-forge/linux-64::libevent-2.1.12-h5348a74_2 
+  libexpat           conda-forge/linux-64::libexpat-2.9.0-hd2095e1_0 
+  libffi             conda-forge/linux-64::libffi-3.7.0-h81df57d_1 
+  libflac            conda-forge/linux-64::libflac-1.5.0-he200343_1 
+  libfreetype        conda-forge/linux-64::libfreetype-2.14.3-ha770c72_2 
+  libfreetype6       conda-forge/linux-64::libfreetype6-2.14.3-h5e6c136_2 
+  libgcc             conda-forge/linux-64::libgcc-16.2.0-ha9f2e26_7 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-16.2.0-h69a702a_7 
+  libgfortran        conda-forge/linux-64::libgfortran-16.2.0-h69a702a_7 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-16.2.0-h69a702a_7 
+  libgfortran5       conda-forge/linux-64::libgfortran5-16.2.0-h6b99dfc_7 
+  libgl              conda-forge/linux-64::libgl-1.7.0-ha4b6fd6_5 
+  libglib            conda-forge/linux-64::libglib-2.90.0-h569388d_0 
+  libglu             conda-forge/linux-64::libglu-9.0.3-h5888daf_1 
+  libglvnd           conda-forge/linux-64::libglvnd-1.7.0-ha4b6fd6_5 
+  libglx             conda-forge/linux-64::libglx-1.7.0-ha4b6fd6_5 
+  libgomp            conda-forge/linux-64::libgomp-16.2.0-he0feb66_7 
+  libholoplaycore    schrodinger/linux-64::libholoplaycore-0.1.0_rc4-1 
+  libhwloc           conda-forge/linux-64::libhwloc-2.12.1-default_h3d81e11_1000 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h0cb94f2_3 
+  libidn2            conda-forge/linux-64::libidn2-2.3.8-h9866765_3 
+  libjpeg-turbo      conda-forge/linux-64::libjpeg-turbo-3.2.1-h7cc23a3_0 
+  libkrb5            anaconda/pkgs/main/linux-64::libkrb5-1.22.1-h6d2bf13_0 
+  liblapack          conda-forge/linux-64::liblapack-3.11.0-12_h47877c9_openblas 
+  libllvm20          conda-forge/linux-64::libllvm20-20.1.8-hecd9e04_0 
+  libllvm22          anaconda/pkgs/main/linux-64::libllvm22-22.1.2-hfb1d434_0 
+  liblzma            conda-forge/linux-64::liblzma-5.8.3-hb03c661_1 
+  libnetcdf          conda-forge/linux-64::libnetcdf-4.9.3-nompi_h81b047f_102 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.67.1-had1ee68_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libntlm            conda-forge/linux-64::libntlm-1.8-hebe6cf0_3 
+  libogg             conda-forge/linux-64::libogg-1.3.5-hd0c01bc_1 
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.34-pthreads_hf13c14d_2 
+  libopengl          conda-forge/linux-64::libopengl-1.7.0-ha4b6fd6_5 
+  libopus            conda-forge/linux-64::libopus-1.6.1-hebe6cf0_1 
+  libpciaccess       conda-forge/linux-64::libpciaccess-0.19-hb03c661_1 
+  libpng             conda-forge/linux-64::libpng-1.6.59-h922cc85_0 
+  libpq              conda-forge/linux-64::libpq-17.7-h5c52fec_1 
+  libpython          conda-forge/linux-64::libpython-3.12.15-h0c77377_1_cpython 
+  librdkit           conda-forge/linux-64::librdkit-2025.03.6-h3c5c181_0 
+  libsndfile         conda-forge/linux-64::libsndfile-1.2.2-hbc6d301_3 
+  libsqlite          conda-forge/linux-64::libsqlite-3.53.4-h0737f62_102 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-h6154650_1 
+  libstdcxx          conda-forge/linux-64::libstdcxx-16.2.0-h934c35e_7 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-16.2.0-hdf11a46_7 
+  libsystemd0        conda-forge/linux-64::libsystemd0-262.1-h26e0ef7_0 
+  libtiff            conda-forge/linux-64::libtiff-4.7.2-hcc2c06a_1 
+  libunistring       conda-forge/linux-64::libunistring-0.9.10-h7f98852_0 
+  libuuid            conda-forge/linux-64::libuuid-2.42.4-hcfc3c73_1 
+  libvorbis          conda-forge/linux-64::libvorbis-1.3.7-h54a6638_2 
+  libwebp-base       conda-forge/linux-64::libwebp-base-1.6.0-hd42ef1d_1 
+  libxcb             conda-forge/linux-64::libxcb-1.17.0-hb83e432_3 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.38-h280c20c_0 
+  libxkbcommon       conda-forge/linux-64::libxkbcommon-1.11.0-he8b52b9_0 
+  libxml2            conda-forge/linux-64::libxml2-2.13.9-h04c0eec_0 
+  libzip             conda-forge/linux-64::libzip-1.12.1-h6008cf6_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.2-h25fd6f3_3 
+  lmdb               conda-forge/linux-64::lmdb-0.9.35-h25c0377_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-hee9eb32_2 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-4.2.0-pyhd8ed1ab_0 
+  matplotlib-base    conda-forge/linux-64::matplotlib-base-3.10.9-py312he3d6523_0 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mengine            schrodinger/linux-64::mengine-1-h14c3975_1 
+  mkl                anaconda/pkgs/main/linux-64::mkl-2025.0.0-h6d8faa4_942 
+  mmcif_pdbx         conda-forge/noarch::mmcif_pdbx-2.0.1-pyhd8ed1ab_1 
+  mpeg_encode        schrodinger/linux-64::mpeg_encode-1-h14c3975_1 
+  mpg123             conda-forge/linux-64::mpg123-1.33.7-h877a99e_1 
+  mtz2ccp4_px        schrodinger/linux-64::mtz2ccp4_px-1.1-h3218e01_0 
+  munkres            conda-forge/noarch::munkres-1.1.4-pyhd8ed1ab_1 
+  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_1 
+  netcdf-fortran     conda-forge/linux-64::netcdf-fortran-4.6.2-nompi_h90de81b_102 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h54a6638_2 
+  nspr               conda-forge/linux-64::nspr-4.40-h76ac25a_0 
+  nss                conda-forge/linux-64::nss-3.118-h445c969_0 
+  numpy              conda-forge/linux-64::numpy-1.26.4-py312heda63a1_0 
+  ocl-icd            conda-forge/linux-64::ocl-icd-2.3.4-hb03c661_1 
+  openbabel          conda-forge/linux-64::openbabel-3.1.1-py312hbfe4552_9 
+  opencl-headers     conda-forge/linux-64::opencl-headers-2025.06.13-hecca717_0 
+  openjpeg           conda-forge/linux-64::openjpeg-2.5.4-heb1ab33_2 
+  openldap           conda-forge/linux-64::openldap-2.6.10-he970967_0 
+  openssl            conda-forge/linux-64::openssl-3.6.5-h781a0a9_0 
+  packaging          conda-forge/noarch::packaging-26.3-pyhc364b38_0 
+  pandas             conda-forge/linux-64::pandas-3.0.6-np2py312h91ec553_0 
+  parmed             conda-forge/linux-64::parmed-4.3.1-py312he864675_1 
+  pcre2              conda-forge/linux-64::pcre2-10.47-h8b3dc9c_1 
+  pdb-tools          conda-forge/noarch::pdb-tools-2.7.0-pyhcf101f3_0 
+  pdb2pqr            conda-forge/noarch::pdb2pqr-3.8.0-pyhd8ed1ab_0 
+  perl               conda-forge/linux-64::perl-5.44.0-1_h7cc23a3_perl5 
+  pillow             conda-forge/linux-64::pillow-13.0.0-py312h38079b3_0 
+  pip                conda-forge/noarch::pip-26.2.2-pyh8b19718_2 
+  pixman             conda-forge/linux-64::pixman-0.46.4-h54a6638_3 
+  ply                conda-forge/noarch::ply-3.11-pyhd8ed1ab_3 
+  pmw                conda-forge/linux-64::pmw-2.1.1-py312h7900ff3_1 
+  propka             conda-forge/noarch::propka-3.5.1-pyhecae5ae_2 
+  pthread-stubs      conda-forge/linux-64::pthread-stubs-0.4-h7cc23a3_1004 
+  pulseaudio-client  conda-forge/linux-64::pulseaudio-client-17.0-hb10c1b2_4 
+  pycairo            conda-forge/linux-64::pycairo-1.29.1-py312h33cdcd1_2 
+  pycollada          conda-forge/noarch::pycollada-0.9.3-pyhd8ed1ab_1 
+  pycparser          conda-forge/noarch::pycparser-3.12-pyh5ded981_1 
+  pygments           conda-forge/noarch::pygments-2.21.0-pyhcf101f3_0 
+  pykerberos         conda-forge/linux-64::pykerberos-1.2.4-py312h7cea900_7 
+  pymol              schrodinger/linux-64::pymol-3.1.7.2-py312hc70acc6_0 
+  pymol-bundle       schrodinger/linux-64::pymol-bundle-3.1.6.1-0 
+  pymol-web-examples schrodinger/noarch::pymol-web-examples-2.4-1 
+  pyparsing          conda-forge/noarch::pyparsing-3.3.3-pyh5ded981_0 
+  pyqt               conda-forge/linux-64::pyqt-5.15.11-py312h82c0db2_2 
+  pyqt5-sip          conda-forge/linux-64::pyqt5-sip-12.17.0-py312h1289d80_2 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.12.15-h5f976f7_1_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-4.0.0-pyh5ded981_0 
+  python-gil         conda-forge/noarch::python-gil-3.12.16-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2026.6-pyh5ded981_0 
+  python_abi         conda-forge/noarch::python_abi-3.12-9_cp312 
+  qhull              conda-forge/linux-64::qhull-2020.2-haf43d43_6 
+  qt-main            conda-forge/linux-64::qt-main-5.15.15-h3a7ef08_5 
+  rdkit              conda-forge/linux-64::rdkit-2025.03.6-py312h089baad_0 
+  readline           conda-forge/linux-64::readline-8.3-hd6e31c0_1 
+  reportlab          conda-forge/noarch::reportlab-5.1.0-pyh5ded981_0 
+  requests           conda-forge/noarch::requests-2.34.2-pyhcf101f3_0 
+  rich               conda-forge/noarch::rich-15.0.0-pyhcf101f3_0 
+  rigimol            schrodinger/linux-64::rigimol-1.5.1-h3fd9d12_0 
+  rlpycairo          conda-forge/noarch::rlpycairo-0.4.0-pyh6c17108_0 
+  scipy              conda-forge/linux-64::scipy-1.17.1-py312h54fa4ab_1 
+  setuptools         conda-forge/noarch::setuptools-84.2.1-pyhe730653_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_2 
+  sip                conda-forge/linux-64::sip-6.10.0-py312h1289d80_1 
+  slm_x509           schrodinger/linux-64::slm_x509-2024.3-h9bf148f_3 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h34e00bb_2 
+  sqlalchemy         conda-forge/linux-64::sqlalchemy-2.1.8-py312h1b36aeb_1 
+  tbb                conda-forge/linux-64::tbb-2022.3.0-h8d10470_1 
+  tbb-devel          conda-forge/linux-64::tbb-devel-2022.3.0-h74b38a2_1 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h1df4ec4_4 
+  toml               conda-forge/noarch::toml-0.10.2-pyhcf101f3_3 
+  tomli              conda-forge/noarch::tomli-2.5.0-pyh5ded981_0 
+  typer              conda-forge/noarch::typer-0.27.3-pyh5ded981_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.16.0-pyhcf101f3_0 
+  tzdata             conda-forge/noarch::tzdata-2026e-h5d301ff_0 
+  unicodedata2       conda-forge/linux-64::unicodedata2-18.0.0-py312h5cc1888_1 
+  urllib3            conda-forge/noarch::urllib3-2.8.0-pyh5ded981_1 
+  vtk-m              schrodinger/linux-64::vtk-m-1.8.0-h3fd9d12_2 
+  wheel              conda-forge/noarch::wheel-0.48.0-pyhd8ed1ab_0 
+  xcb-util           conda-forge/linux-64::xcb-util-0.4.1-hb83e432_3 
+  xcb-util-image     conda-forge/linux-64::xcb-util-image-0.4.0-hb83e432_3 
+  xcb-util-keysyms   conda-forge/linux-64::xcb-util-keysyms-0.4.1-hb711507_0 
+  xcb-util-renderut~ conda-forge/linux-64::xcb-util-renderutil-0.3.10-hb711507_0 
+  xcb-util-wm        conda-forge/linux-64::xcb-util-wm-0.4.2-hb711507_0 
+  xkeyboard-config   conda-forge/linux-64::xkeyboard-config-2.48-hebe6cf0_1 
+  xorg-libice        conda-forge/linux-64::xorg-libice-1.1.2-h280c20c_0 
+  xorg-libsm         conda-forge/linux-64::xorg-libsm-1.2.6-h0d788c3_1 
+  xorg-libx11        conda-forge/linux-64::xorg-libx11-1.8.14-hb83e432_0 
+  xorg-libxau        conda-forge/linux-64::xorg-libxau-1.0.12-h7cc23a3_2 
+  xorg-libxcomposite conda-forge/linux-64::xorg-libxcomposite-0.4.7-hb03c661_0 
+  xorg-libxdamage    conda-forge/linux-64::xorg-libxdamage-1.1.6-hb9d3cd8_0 
+  xorg-libxdmcp      conda-forge/linux-64::xorg-libxdmcp-1.1.5-h7cc23a3_2 
+  xorg-libxext       conda-forge/linux-64::xorg-libxext-1.3.7-h7cc23a3_1 
+  xorg-libxfixes     conda-forge/linux-64::xorg-libxfixes-6.0.2-h7cc23a3_1 
+  xorg-libxrender    conda-forge/linux-64::xorg-libxrender-0.9.13-h7cc23a3_0 
+  xorg-libxshmfence  conda-forge/linux-64::xorg-libxshmfence-1.3.3-h7cc23a3_0 
+  xorg-libxt         conda-forge/linux-64::xorg-libxt-1.3.1-h7cc23a3_1 
+  xorg-libxxf86vm    conda-forge/linux-64::xorg-libxxf86vm-1.1.7-h7cc23a3_1 
+  zlib               conda-forge/linux-64::zlib-1.3.2-h25fd6f3_3 
+  zlib-ng            conda-forge/linux-64::zlib-ng-2.3.3-hce19668_1 
+  zstandard          conda-forge/linux-64::zstandard-0.25.0-py312h1b36aeb_5 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_7 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                                                                                                                                  
+Preparing transaction: done                                                                                                                                                                                       
+Verifying transaction: done                                                                                                                                                                                       
+Executing transaction: done                                                                                                                                                                                       
+Installing pip dependencies: | Ran pip subprocess with arguments:                                                                                                                                                 
+['/data/User/miniconda3/envs/DockMD/bin/python', '-m', 'pip', 'install', '-U', '-r', '/data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt', '--exists-action=b']                            
+Pip subprocess output:                                                                                                                                                                                            
+Looking in indexes: https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple                                                                                                                                          
+Requirement already satisfied: amberutils==21.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 1)) (21.0)                                                                                                                                                                                                                
+Collecting argparse==1.4.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 2))                                                                                              
+  Using cached argparse-1.4.0-py2.py3-none-any.whl (23 kB)                                                                                                                                                        
+Collecting choreographer==1.4.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 3))                                                                                         
+  Using cached choreographer-1.4.0-py3-none-any.whl (57 kB)                                                                                                                                                       
+Collecting duivytools==0.6.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4))                                                                                            
+  Using cached DuIvyTools-0.6.0-py3-none-any.whl (1.3 MB)
+Requirement already satisfied: edgembar==3.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 5)) (3.0)
+Collecting kaleido==1.5.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 6))
+  Using cached kaleido-1.5.0-py3-none-any.whl (55 kB)
+Collecting logistro==2.0.1 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 7))
+  Using cached logistro-2.0.1-py3-none-any.whl (8.6 kB)
+Requirement already satisfied: mmpbsa-py==16.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 8)) (16.0)
+Collecting narwhals==2.28.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 9))
+  Using cached narwhals-2.28.0-py3-none-any.whl (490 kB)
+Requirement already satisfied: ndfes==3.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 10)) (3.0)
+Collecting openmm==8.6.1 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 11))
+  Using cached openmm-8.6.1-cp312-cp312-manylinux_2_34_x86_64.whl (14.4 MB)
+Requirement already satisfied: pdb4amber==22.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 12)) (22.0)
+Collecting pdbfixer==1.12.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 13))
+  Using cached pdbfixer-1.12.0-py3-none-any.whl
+Collecting platformdirs==4.14.5 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 14))
+  Using cached platformdirs-4.14.5-py3-none-any.whl (35 kB)
+Collecting plotext==6.1.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 15))
+  Using cached plotext-6.1.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (475 kB)
+Collecting plotly==7.1.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 16))
+  Using cached plotly-7.1.0-py3-none-any.whl (9.7 MB)
+Requirement already satisfied: pymsmt==22.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 17)) (22.0)
+Requirement already satisfied: pytraj==2.0.6 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 18)) (2.0.6)
+Requirement already satisfied: sander==22.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 19)) (22.0)
+Collecting simplejson==4.3.0 (from -r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 20))
+  Using cached simplejson-4.3.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (213 kB)
+Requirement already satisfied: matplotlib in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (3.10.9)
+Requirement already satisfied: numpy in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (1.26.4)
+Requirement already satisfied: pandas in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (3.0.6)
+Requirement already satisfied: scipy in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (1.17.1)
+Requirement already satisfied: colorama in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (0.4.6)
+Requirement already satisfied: packaging in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from kaleido==1.5.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 6)) (26.3)
+Requirement already satisfied: contourpy>=1.0.1 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (4.68.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (1.5.1)
+Requirement already satisfied: pillow>=8 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (13.0.0)
+Requirement already satisfied: pyparsing>=3 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (3.3.3)
+Requirement already satisfied: python-dateutil>=2.7 in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (4.0.0)
+Requirement already satisfied: tzdata in /data/User/miniconda3/envs/DockMD/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib->duivytools==0.6.0->-r /data/User/orgline_env/MD/DockMD/condaenv.rhkatqi0.requirements.txt (line 4)) (2026.6)
+Installing collected packages: argparse, simplejson, plotext, platformdirs, openmm, narwhals, logistro, plotly, pdbfixer, choreographer, kaleido, duivytools
+
+Successfully installed argparse-1.4.0 choreographer-1.4.0 duivytools-0.6.0 kaleido-1.5.0 logistro-2.0.1 narwhals-2.28.0 openmm-8.6.1 pdbfixer-1.12.0 platformdirs-4.14.5 plotext-6.1.0 plotly-7.1.0 simplejson-4.3.0
+                                                                                                                                                                                                                 done
+#
+# To activate this environment, use
+#
+#     $ conda activate DockMD
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+
+
+conda activate DockMD
+pymol -cq -d "print('pymol ok')"
+obabel -V
+vina --version
+acpype --version
+gmx --version
+python -c "import numpy, scipy, matplotlib, plotly, openmm, pdbfixer; print('python deps ok')"
+PyMOL>print('pymol ok')
+pymol ok
+Open Babel 3.1.0 -- Nov 30 2023 -- 20:44:30
+AutoDock Vina 1.1.2 (May 11, 2011)
+============================================================================
+| ACPYPE: AnteChamber PYthon Parser interfacE v. 2026.10.15 (c) 2026 AWSdS |
+============================================================================
+                   :-) GROMACS - gmx, 2025.4-conda_forge (-:
+
+Executable:   /data/User/miniconda3/envs/DockMD/bin.AVX2_256/gmx
+Data prefix:  /data/User/miniconda3/envs/DockMD
+Working dir:  /data/User/orgline_env/MD/DockMD
+Command line:
+  gmx --version
+
+GROMACS version:     2025.4-conda_forge
+Precision:           mixed
+Memory model:        64 bit
+MPI library:         thread_mpi
+OpenMP support:      enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:         OpenCL
+NBNxM GPU setup:     super-cluster 2x2x2 / cluster 8 (cluster-pair splitting on)
+SIMD instructions:   AVX2_256
+CPU FFT library:     fftw-3.3.11-sse2-avx
+GPU FFT library:     clFFT
+Multi-GPU FFT:       none
+RDTSCP usage:        disabled
+TNG support:         enabled
+Hwloc support:       disabled
+Tracing support:     disabled
+C compiler:          /home/conda/feedstock_root/build_artifacts/gromacs_1764344590343/_build_env/bin/x86_64-conda-linux-gnu-cc GNU 14.3.0
+C compiler flags:    -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -O3 -DNDEBUG
+C++ compiler:        /home/conda/feedstock_root/build_artifacts/gromacs_1764344590343/_build_env/bin/x86_64-conda-linux-gnu-c++ GNU 14.3.0
+C++ compiler flags:  -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -Wno-cast-function-type-strict SHELL:-fopenmp -O3 -DNDEBUG
+BLAS library:        Internal
+LAPACK library:      Internal
+OpenCL include dir:  /data/User/miniconda3/envs/DockMD/include
+OpenCL library:      /data/User/miniconda3/envs/DockMD/lib/libOpenCL.so
+OpenCL version:      3.0
+
+python deps ok
