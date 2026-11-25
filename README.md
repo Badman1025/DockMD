@@ -1,4 +1,6 @@
-# <img src="DockMD_logo.png" alt="DockMD logo" width="140"/>
+<div align="center">
+  <img src="DockMD_logo.png" alt="DockMD logo" width="140"/>
+</div>
 
 **DockMD**
 
