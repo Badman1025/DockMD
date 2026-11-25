@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="DockMD_logo.png" alt="DockMD logo" width="140"/>
+  <img src="DockMD_logo.png" alt="DockMD logo" width="250"/>
 </div>
 
 **DockMD**
