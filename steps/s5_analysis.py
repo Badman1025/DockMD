@@ -171,7 +171,7 @@ def group_dynamics(md_dir, level="npt"):
           f"(ligand residue: {resname}) ...")
     run([GMX, "rms", "-s", tpr, "-f", traj, "-o", f"{level}_rmsd.xvg", "-tu", "ns"],
         cwd=md_dir, stdin_str="Backbone\nProtein\n", quiet=True)
-    run([GMX, "gyrate", "-s", tpr, "-f", traj, "-o", f"{level}_gyrate.xvg"],
+    run([GMX, "gyrate", "-s", tpr, "-f", traj, "-o", f"{level}_gyrate.xvg", "-tu", "ns"],
         cwd=md_dir, stdin_str="Protein\n", quiet=True)
     run([GMX, "trjconv", "-s", tpr, "-f", traj,
          "-o", center, "-pbc", "mol", "-center"],

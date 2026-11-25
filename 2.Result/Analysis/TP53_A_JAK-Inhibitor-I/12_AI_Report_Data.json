@@ -1,0 +1,275 @@
+{
+  "generated_at": "2026-11-25T14:41:25",
+  "system": "TP53_A_JAK-Inhibitor-I",
+  "md_dir": "/data/zhangyu/orgline_env/MD/AIDockMD/2.Result/MD_Setup/TP53_A_JAK-Inhibitor-I",
+  "analysis_dir": "/data/zhangyu/orgline_env/MD/AIDockMD/2.Result/Analysis/TP53_A_JAK-Inhibitor-I",
+  "levels": {
+    "npt": {
+      "rmsd": {
+        "unit": "Angstrom",
+        "time_unit": "ns",
+        "frames": 1001,
+        "time_span_ns": 1.0,
+        "short_track": true,
+        "initial_mean": 1.006,
+        "late_mean": 1.944,
+        "late_std": 0.082,
+        "late_window_ns": [
+          0.8,
+          1.0
+        ],
+        "max": 2.161,
+        "max_time_ns": 0.99,
+        "tail_slope_A_per_ns": 0.3179,
+        "trend_class": "evident_drift"
+      },
+      "gyrate": {
+        "unit": "nm",
+        "frames": 1001,
+        "early_mean": 1.482,
+        "late_mean": 1.447,
+        "late_std": 0.007,
+        "change_percent": -2.37
+      },
+      "rmsf": {
+        "unit": "Angstrom",
+        "n_residues": 121,
+        "mean": 0.953,
+        "std": 0.489,
+        "max": 2.954,
+        "top_flexible_residues": [
+          {
+            "residue": 1,
+            "rmsf_A": 2.95
+          },
+          {
+            "residue": 69,
+            "rmsf_A": 2.85
+          },
+          {
+            "residue": 2,
+            "rmsf_A": 2.64
+          },
+          {
+            "residue": 3,
+            "rmsf_A": 2.54
+          },
+          {
+            "residue": 70,
+            "rmsf_A": 1.9
+          },
+          {
+            "residue": 86,
+            "rmsf_A": 1.85
+          },
+          {
+            "residue": 68,
+            "rmsf_A": 1.74
+          },
+          {
+            "residue": 84,
+            "rmsf_A": 1.69
+          }
+        ],
+        "n_above_mean_plus_2sd": 4,
+        "note": "residue numbers are GROMACS selection indices and may be offset from PDB numbering"
+      },
+      "hbnum": {
+        "unit": "count",
+        "time_unit": "ns",
+        "frames": 1001,
+        "time_span_ns": 1.0,
+        "mean": 0.0,
+        "max": 0,
+        "fraction_frames_with_at_least_one": 0.0
+      },
+      "fel": {
+        "unit": "kJ/mol",
+        "frames": 1001,
+        "pc1_range": [
+          -5.737,
+          3.676
+        ],
+        "pc2_range": [
+          -2.895,
+          3.175
+        ],
+        "min_basin_pc1": 0.005,
+        "min_basin_pc2": 2.264,
+        "min_G": 0.877,
+        "n_basins_below_2kJ": 4,
+        "largest_basin_bin_counts": [
+          31,
+          19,
+          16
+        ],
+        "largest_basin_frame_fraction": 0.0698
+      }
+    },
+    "md": {
+      "rmsd": {
+        "unit": "Angstrom",
+        "time_unit": "ns",
+        "frames": 50001,
+        "time_span_ns": 100.0,
+        "short_track": false,
+        "initial_mean": 1.941,
+        "late_mean": 2.332,
+        "late_std": 0.166,
+        "late_window_ns": [
+          80.0,
+          100.0
+        ],
+        "max": 3.111,
+        "max_time_ns": 72.8,
+        "tail_slope_A_per_ns": -0.0074,
+        "trend_class": "plateau"
+      },
+      "gyrate": {
+        "unit": "nm",
+        "frames": 50001,
+        "early_mean": 1.454,
+        "late_mean": 1.453,
+        "late_std": 0.01,
+        "change_percent": -0.04
+      },
+      "rmsf": {
+        "unit": "Angstrom",
+        "n_residues": 121,
+        "mean": 1.325,
+        "std": 0.715,
+        "max": 5.465,
+        "top_flexible_residues": [
+          {
+            "residue": 1,
+            "rmsf_A": 5.46
+          },
+          {
+            "residue": 2,
+            "rmsf_A": 3.62
+          },
+          {
+            "residue": 69,
+            "rmsf_A": 3.48
+          },
+          {
+            "residue": 68,
+            "rmsf_A": 3.47
+          },
+          {
+            "residue": 42,
+            "rmsf_A": 2.66
+          },
+          {
+            "residue": 70,
+            "rmsf_A": 2.65
+          },
+          {
+            "residue": 3,
+            "rmsf_A": 2.48
+          },
+          {
+            "residue": 72,
+            "rmsf_A": 2.34
+          }
+        ],
+        "n_above_mean_plus_2sd": 4,
+        "note": "residue numbers are GROMACS selection indices and may be offset from PDB numbering"
+      },
+      "hbnum": {
+        "unit": "count",
+        "time_unit": "ns",
+        "frames": 50001,
+        "time_span_ns": 100.0,
+        "mean": 0.05,
+        "max": 3,
+        "fraction_frames_with_at_least_one": 0.0503
+      },
+      "fel": {
+        "unit": "kJ/mol",
+        "frames": 50001,
+        "pc1_range": [
+          -5.415,
+          5.259
+        ],
+        "pc2_range": [
+          -5.807,
+          5.879
+        ],
+        "min_basin_pc1": -0.399,
+        "min_basin_pc2": -3.353,
+        "min_G": 0.207,
+        "n_basins_below_2kJ": 1,
+        "largest_basin_bin_counts": [
+          720
+        ],
+        "largest_basin_frame_fraction": 0.4133
+      }
+    }
+  },
+  "qc": {
+    "em_potential": {
+      "unit": "kJ/mol",
+      "n_points": 696,
+      "first": -261640.6,
+      "last": -537333.3
+    },
+    "nvt_temperature": {
+      "unit": "K",
+      "mean": 299.793,
+      "std": 1.562,
+      "min": 295.44,
+      "max": 303.055
+    },
+    "npt_temperature": {
+      "unit": "K",
+      "mean": 299.998,
+      "std": 1.613,
+      "min": 294.82,
+      "max": 304.845
+    },
+    "npt_pressure": {
+      "unit": "bar",
+      "mean": -6.479,
+      "std": 137.577,
+      "min": -403.818,
+      "max": 416.302
+    },
+    "npt_density": {
+      "unit": "kg/m^3",
+      "mean": 999.562,
+      "std": 2.608,
+      "min": 991.182,
+      "max": 1007.605
+    }
+  },
+  "mdp_targets": {
+    "temperature": 300.0,
+    "pressure": 1.0,
+    "source": "mdout.mdp"
+  },
+  "outputs": {
+    "present": [
+      "01_Equilibration_QC.png",
+      "02_Dynamics_Analysis.pdf",
+      "03_FEL_Plot.png",
+      "04_FEL_Plot_Advanced.png",
+      "05_FEL_3D_Advanced.png",
+      "06_FEL_3D_Interactive.html",
+      "07_md_Dynamics_Analysis.pdf",
+      "08_md_FEL_Plot.png",
+      "09_md_FEL_Plot_Advanced.png",
+      "10_md_FEL_3D_Advanced.png",
+      "11_md_FEL_3D_Interactive.html"
+    ],
+    "missing": []
+  },
+  "ai_interpretation": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "status": "ok",
+    "dropped_sentences": 0,
+    "text_html": "<p style='margin:10px 0 4px;font-weight:600;color:#1d4ed8'>Overall impression</p><ul class=\"plain\"><li>The system exhibits a plateau in RMSD and a minor drift in the short-term RMSD, indicating a stable structure over the long term.</li><li>The radius of gyration (Rg) shows a slight decrease, suggesting a more compact structure in the late simulation.</li><li>The RMSF indicates significant flexibility in the protein, with residues 1, 2, 3, 68, 69, 70, 84, and 86 being the most flexible.</li><li>The hydrogen bond analysis shows no hydrogen bonds formed during the simulation.</li><li>The free energy landscape (FEL) indicates multiple basins, with one basin having a significant fraction of the simulation frames.</li></ul><p style='margin:10px 0 4px;font-weight:600;color:#1d4ed8'>Cross-metric consistency review</p><ul class=\"plain\"><li>The RMSD shows a plateau in the long-term simulation, consistent with the late mean and standard deviation of the RMSD.</li><li>The Rg shows a slight decrease, which is consistent with the late mean and standard deviation of the Rg.</li><li>The RMSF indicates high flexibility, which is consistent with the observed RMSD and Rg trends.</li><li>The FEL shows multiple basins, which is consistent with the observed RMSD and Rg trends, suggesting the system explores multiple conformations.</li><li>The hydrogen bond analysis shows no hydrogen bonds, which is consistent with the observed RMSD and Rg trends, indicating a dynamic system with no stable hydrogen bonding.</li></ul><p style='margin:10px 0 4px;font-weight:600;color:#1d4ed8'>Data anomalies</p><ul class=\"plain\"><li>The RMSD shows a drift in the short-term simulation, which may indicate an issue with the initial equilibration.</li><li>The hydrogen bond analysis shows no hydrogen bonds, which is unusual and may suggest a need for further inspection of the ligand-protein interaction.</li><li>The FEL indicates multiple basins, but the largest basin has a significant fraction of the simulation frames, which is consistent with the observed RMSD and Rg trends.</li></ul><p style='margin:10px 0 4px;font-weight:600;color:#1d4ed8'>Suggestions and caveats</p><ul class=\"plain\"><li>The system appears to have equilibrated well in the long-term simulation, as indicated by the plateau in RMSD.</li><li>The lack of hydrogen bonds suggests that the ligand may not be stabilizing the protein in a specific conformation, requiring further analysis.</li><li>The multiple basins in the FEL indicate that the system is exploring different conformations, which is consistent with the observed RMSD and Rg trends.</li><li>The initial drift in RMSD suggests that the system may require additional equilibration steps, especially in the short-term simulation.</li></ul>",
+    "error": "",
+    "key_source": "env DASHSCOPE_API_KEY"
+  }
+}

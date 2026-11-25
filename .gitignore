@@ -1,5 +1,0 @@
-__pycache__/
-*.py[cod]
-*.pyo
-.DS_Store
-script -f -c _python pipeline.py prep_ prep.log

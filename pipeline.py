@@ -37,6 +37,13 @@ def main():
 
     sub.add_parser("status").set_defaults(func="status")
 
+    p_rep = sub.add_parser("report",
+                           help="build report data + self-contained HTML report from analysis outputs")
+    p_rep.add_argument("--level", default="all", choices=["all", "npt", "md"])
+    p_rep.add_argument("--ai", action="store_true",
+                       help="append LLM interpretation section (needs API key env)")
+    p_rep.set_defaults(func="report")
+
     args = parser.parse_args()
 
     if args.func == "status":
@@ -61,6 +68,9 @@ def main():
     elif args.func == "mdanalysis":
         from steps import s5_analysis
         s5_analysis.main(group=args.group, level="md")
+    elif args.func == "report":
+        from ai import report_data
+        report_data.main(level=args.level, use_ai=args.ai)
     elif args.func == "all":
         from steps import s1_docking, s2_prep, s3_equil
         s1_docking.main()
@@ -69,7 +79,7 @@ def main():
         print("\n[all] docking -> prep -> equil finished.")
         print("      production MD takes a long time; run it manually when ready: python pipeline.py md")
 
-    if args.func != "status":
+    if args.func not in ("status", "report"):
         print("\n[OK] Current step finished. Check progress: python pipeline.py status")
 
 
