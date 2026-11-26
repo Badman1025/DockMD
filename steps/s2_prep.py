@@ -373,6 +373,43 @@ def strip_atomtypes(itp_in, itp_out):
     return atomtypes
 
 
+def _normalize_ligand_pdb_resname(pdb_path, resname="LIG"):
+    count = 0
+    lines = []
+    with open(pdb_path) as f:
+        for line in f:
+            if line.startswith(("ATOM  ", "HETATM")) and len(line) >= 21:
+                line = line[:17] + resname[:3].ljust(3) + line[20:]
+                count += 1
+            lines.append(line)
+    with open(pdb_path, "w") as f:
+        f.writelines(lines)
+    return count
+
+
+def _normalize_mol2_residues(mol2_path, resname="LIG"):
+    count = 0
+    out_lines = []
+    in_atom = False
+    with open(mol2_path) as f:
+        for line in f:
+            if line.startswith("@<TRIPOS>"):
+                in_atom = line.strip() == "@<TRIPOS>ATOM"
+                out_lines.append(line)
+                continue
+            if in_atom and line.strip():
+                toks = line.split()
+                if len(toks) >= 8:
+                    toks[6] = "1"
+                    toks[7] = resname
+                    line = " ".join(toks) + "\n"
+                    count += 1
+            out_lines.append(line)
+    with open(mol2_path, "w") as f:
+        f.writelines(out_lines)
+    return count
+
+
 def _try_obabel_hydrogens(md_dir):
     try:
         run([OBABEL, "ligand.pdb", "-O", "lig_noh.mol2", "-d"], cwd=md_dir)
@@ -482,6 +519,11 @@ with open(r"{os.path.join(md_dir, 'receptor_fixed.pdb')}", "w") as f:
 
     print("\n[4] Ligand parameterization: hydrogen placement + acpype ...")
     shutil.copy(lig_pdb, os.path.join(md_dir, "ligand.pdb"))
+    lig_pdb_local = os.path.join(md_dir, "ligand.pdb")
+    n_norm = _normalize_ligand_pdb_resname(lig_pdb_local)
+    print(f"  [QC] normalized ligand residue names to LIG ({n_norm} atoms); "
+          f"peptide-like ligands may carry multi-residue names from "
+          f"obabel perception, which acpype rejects")
     lig_mol2 = os.path.join(md_dir, "lig.mol2")
 
     print("  [4.1] Strategy 1: obabel (delete hydrogens, then re-add) ...")
@@ -507,6 +549,9 @@ with open(r"{os.path.join(md_dir, 'receptor_fixed.pdb')}", "w") as f:
                 f"            (2) check the protonation state of the input "
                 f"sdf in 1.Raw_data.\n"
                 f"   MD will not start on a broken ligand.")
+
+    n_sub = _normalize_mol2_residues(lig_mol2)
+    print(f"  [QC] forced single residue LIG in lig.mol2 ({n_sub} atom lines)")
 
     run([ACPYPE, "-i", "lig.mol2", "-b", cfg.LIGAND_NAME,
          "-n", "0", "-a", "gaff2"], cwd=md_dir)

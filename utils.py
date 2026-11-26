@@ -48,6 +48,19 @@ def save_state(**kwargs):
     return state
 
 
+def clear_state_keys(keys):
+    state = load_state()
+    removed = [k for k in keys if k in state]
+    if not removed:
+        return
+    for k in removed:
+        state.pop(k)
+    state["updated_at"] = datetime.now().isoformat(timespec="seconds")
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+    print(f"[state] Cleared stale keys: {', '.join(removed)}")
+
+
 def get_path(state, key, fallback_finder=None, what=""):
     p = state.get(key)
     if p and os.path.isdir(p):

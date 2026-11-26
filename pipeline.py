@@ -37,6 +37,16 @@ def main():
 
     sub.add_parser("status").set_defaults(func="status")
 
+    p_info = sub.add_parser("info",
+                            help="inspect chains, ligand and pocket assignment")
+    p_info.add_argument("--pdb", default=None,
+                        help="protein PDB (default: config PROTEIN_PDB)")
+    p_info.add_argument("--ligand", default=None,
+                        help="ligand file .sdf/.mol/.mol2/.pdb (default: auto-detect)")
+    p_info.add_argument("--ligand-chain", default=None,
+                        help="treat this chain of the PDB as the ligand (peptide/protein partner)")
+    p_info.set_defaults(func="info")
+
     p_rep = sub.add_parser("report",
                            help="build report data + self-contained HTML report from analysis outputs")
     p_rep.add_argument("--level", default="all", choices=["all", "npt", "md"])
@@ -48,6 +58,12 @@ def main():
 
     if args.func == "status":
         cmd_status(args)
+        return
+
+    if args.func == "info":
+        from steps import s0_info
+        s0_info.main(pdb_path=args.pdb, ligand_path=args.ligand,
+                     ligand_chain=args.ligand_chain)
         return
 
     if args.func == "docking":

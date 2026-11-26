@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="DockMD_logo.png" alt="DockMD logo" width="250"/>
+<img src="DockMD_logo.png" alt="DockMD logo" width="250"/>
 </div>
 
 **DockMD**
@@ -19,6 +19,7 @@ DockMD/
 │   ├── report_data.py   Deterministic statistics + single-file HTML report
 │   └── interpret.py     Optional LLM interpretation with numeric verification
 ├── steps/
+│   ├── s0_info.py       Structure inspection: chains, ligand, pocket assignment
 │   ├── s1_docking.py    AutoDock Vina docking (PyMOL, Open Babel, Vina)
 │   ├── s2_prep.py       MD system preparation (PDBFixer, pdb2gmx, acpype)
 │   ├── s3_equil.py      Ion addition + EM + NVT + NPT equilibration
@@ -45,8 +46,9 @@ conda activate DockMD
 `environment.yml` installs everything from conda (conda-forge + bioconda  
 channels): Python 3.10, numpy, scipy, matplotlib, plotly, pymol-open-source,  
 openbabel, openmm + pdbfixer (used by prep), gromacs, `autodock-vina`  
-(AutoDock Vina 1.2.x, provides the `vina` command), plus the pip packages  
-`kaleido` (fel3d plotting) and `acpype`.
+(AutoDock Vina 1.1.2, provides the `vina` command; a standalone binary also  
+works, see the platform notes below), plus the pip packages `kaleido`  
+(fel3d plotting) and `acpype`.
 
 Verify the toolchain after installation:
 
@@ -93,7 +95,7 @@ Windows GROMACS:
 
 Place these in the `1.Raw_data/` directory before running step 1:
 
-- `3HOR.pdb` (or change `PROTEIN_PDB` in `config.py`)
+- A protein PDB file; set its name in `PROTEIN_PDB` in `config.py`
 - One or more ligand files `*.sdf`; the ligand name is the file name without  
   the extension and must match `LIGAND_NAME` in `config.py` for the MD steps
 - The chain IDs set in `PROTEIN_CHAINS` must exist in the PDB; PDB chain IDs  
@@ -121,6 +123,7 @@ Edit `config.py`:
 Run all commands from the `DockMD/` directory.
 
 ```
+python pipeline.py info             Inspect chains, ligand and pocket assignment
 python pipeline.py docking          Step 1: docking
 python pipeline.py prep             Step 2: MD system preparation
 python pipeline.py equil            Step 3: ions + EM + NVT + NPT
@@ -144,6 +147,64 @@ python pipeline.py report --ai      Append the LLM interpretation section
 Recommended order: run the steps one at a time and inspect the outputs before  
 continuing. `all` stops after equilibration on purpose, since production MD  
 takes hours to days.
+
+## Chain and Pocket Inspection
+
+Replacing the protein means deciding two things before docking: which chain IDs  
+belong in `PROTEIN_CHAINS`, and where the box centre should be. `pipeline.py  
+info` answers both from the structure itself, without any prior knowledge of  
+the system.
+
+Standard workflow — first point `config.py` at the new files:
+
+```python
+PROTEIN_PDB  = "other-protein.pdb"
+LIGAND_NAME  = "other-ligand"
+```
+
+then run the inspection and update the config from its output:
+
+```
+python pipeline.py info
+```
+
+The report suggests a ready-to-paste `PROTEIN_CHAINS`, `FIXED_CENTER` and  
+`BOX_SIZE` block; copy it back into `config.py` before running `docking`.
+
+Alternatively, inspect a candidate structure without touching `config.py`:
+
+```
+python pipeline.py info --pdb 2.Raw_data/other-protein.pdb --ligand 2.Raw_data/other-ligand.sdf
+```
+
+It prints, in order:
+
+1. structure summary (atom count, chain IDs, HETATM groups, hydrogens present);
+2. per-chain inventory (residue count, heavy atoms, residue numbering range with  
+   insertion codes, one-letter sequence), also written to  
+   `2.Result/<structure>_chain_inventory.csv` with columns  
+   `chain, residues, heavy_atoms, hydrogens, first_residue, last_residue,  
+   sequence`;
+3. ligand source, heavy-atom composition, centroid and bounding-box extent  
+   (ligand is `--ligand`, else `--ligand-chain`, else `LIGAND_NAME.sdf`, else  
+   the largest non-water HETATM group; a sibling `.sdf`/`.mol2` is used when  
+   `--pdb` points elsewhere). `--ligand-chain C` treats a polymer chain as the  
+   ligand, which covers peptide inhibitors and protein partners;
+4. per-chain pocket assignment: minimum distance to the ligand, number of  
+   contacting heavy atoms, and the contacting residues in distance order;
+5. pairwise chain interfaces with the minimum inter-chain distance;
+6. disulfides, marked `intra` or `INTER`, plus the count of unpaired cysteines;
+7. a ready-to-paste `PROTEIN_CHAINS`, `FIXED_CENTER` and `BOX_SIZE` block, with  
+   a note when the values differ from `config.py`;
+8. warnings covering blind-docking fallbacks, interface-spanning sites,  
+   disulfide-linked chains that cannot be dropped, blank chain IDs, and  
+   non-standard residues.
+
+Decision rules the output supports: keep every chain that contacts the ligand;  
+keep a chain that is disulfide-linked to a kept chain even when it does not  
+touch the ligand; drop peptides, ions and copies far from the site. The command  
+does not touch `state.json`; its only output file is the chain-inventory CSV  
+above.
 
 ## Outputs
 

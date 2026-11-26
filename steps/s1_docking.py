@@ -6,7 +6,7 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config as cfg
-from utils import PROJECT_DIR, run, save_state
+from utils import PROJECT_DIR, run, save_state, load_state, clear_state_keys
 
 PYMOL = cfg.TOOLS["pymol"]
 OBABEL = cfg.TOOLS["obabel"]
@@ -48,6 +48,15 @@ def normalize_chains():
     return chains
 
 
+def available_chains(pdb_path):
+    chains = set()
+    with open(pdb_path) as f:
+        for line in f:
+            if line.startswith(("ATOM", "HETATM")) and len(line) > 21:
+                chains.add(line[21])
+    return chains
+
+
 def main():
     chains = normalize_chains()
     chain_sel = "+".join(chains)
@@ -57,6 +66,21 @@ def main():
     protein_pdb = os.path.join(raw_dir, cfg.PROTEIN_PDB)
     if not os.path.isfile(protein_pdb):
         sys.exit(f"!! Protein file not found: {protein_pdb}")
+
+    present = available_chains(protein_pdb)
+    missing = [c for c in chains if c not in present]
+    if missing:
+        sys.exit(
+            f"!! Chain(s) {'+'.join(missing)} not found in {cfg.PROTEIN_PDB}.\n"
+            f"   Chain IDs present: {'+'.join(sorted(present)) or 'none'}\n"
+            f"   Fix PROTEIN_CHAINS in config.py (currently '{cfg.PROTEIN_CHAINS}').")
+
+    prev_state = load_state()
+    if prev_state.get("protein_name") and prev_state["protein_name"] != cfg.PROTEIN_NAME:
+        print(f"[state] Protein changed "
+              f"({prev_state['protein_name']} -> {cfg.PROTEIN_NAME}); "
+              f"downstream paths of the previous run are discarded")
+        clear_state_keys(("md_dir", "analysis_dir"))
 
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
     temp_dir = os.path.join(PROJECT_DIR, cfg.RESULT_DIR, cfg.DOCKING_TEMP, run_id)
@@ -70,12 +94,25 @@ def main():
          f"load {protein_pdb}, prot; remove solvent; "
          f"remove not chain {chain_sel}; save {temp_chains_het}, prot"])
 
+    n_extracted = 0
+    with open(temp_chains_het) as f:
+        for line in f:
+            if line.startswith(("ATOM", "HETATM")):
+                n_extracted += 1
+    if n_extracted == 0:
+        sys.exit(f"!! Chain extraction produced no atoms for chains "
+                 f"{chain_sel} (check PROTEIN_CHAINS in config.py).")
+
     if cfg.FIXED_CENTER:
         CX, CY, CZ = cfg.FIXED_CENTER
         src = "fixed"
     else:
         (CX, CY, CZ), src = detect_pocket_center(temp_chains_het)
     print(f"  Box center: ({CX:.3f}, {CY:.3f}, {CZ:.3f}) [source: {src}]")
+    if src == "protein":
+        print("  [WARN] no HETATM found for pocket detection; the box is "
+              "centered on the whole-protein centroid (blind docking). "
+              "For a known binding site set FIXED_CENTER in config.py.")
 
     receptor_pdb = os.path.join(result_dir, f"{cfg.PROTEIN_NAME}_receptor.pdb")
     with open(temp_chains_het) as f, open(receptor_pdb, "w") as g:

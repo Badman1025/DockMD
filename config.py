@@ -19,16 +19,16 @@ else:
         "acpype": "acpype",
     }
 
-PROTEIN_PDB     = "3HOR.pdb"
-PROTEIN_NAME    = "FLNA"
-PROTEIN_CHAINS  = "A"
+PROTEIN_PDB     = "1bcu-protein.pdb"
+PROTEIN_NAME    = "1bcu-protein"
+PROTEIN_CHAINS  = "HL"
 BOX_SIZE        = 20
 EXHAUSTIVENESS  = 8
 VINA_SEED       = 42
 VINA_CPU        = 0
-FIXED_CENTER    = None
+FIXED_CENTER    = (9.558, 20.381, 50.273)
 
-LIGAND_NAME = "quercetin"
+LIGAND_NAME = "1bcu-ligand"
 
 RAW_DATA_DIR = "1.Raw_data"
 RESULT_DIR   = "2.Result"
